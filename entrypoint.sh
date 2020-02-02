@@ -7,7 +7,8 @@ do_reload() {
 do_stop() {
     killall -QUIT php-fpm7 nginx
 }
-
+cp /etc/hosts /srv/etc/hosts -f
+cp /etc/resolv.conf /srv/etc/resolv.conf -f
 echo 'Starting php-fpm7...'
 php-fpm7 -F &
 PHP_PID=$!
